@@ -26,13 +26,14 @@ extension String {
         let charset = NSCharacterSet(charactersInString: " .,:;?![]{}()\n")
         let rawWordArray = self.lowercaseString.componentsSeparatedByCharactersInSet(charset)
         for raw in rawWordArray {
-            if (raw as NSString).length < 4 || ignore.contains(raw) {
+            let trimmed = raw.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "@ '\""))
+            if (trimmed as NSString).length < 4 || ignore.contains(trimmed) {
                 continue
             }
-            if let existWordCount = dic[raw] {
-                dic[raw] = (existWordCount as! Int) + 1
+            if let existWordCount = dic[trimmed] {
+                dic[trimmed] = (existWordCount as! Int) + 1
             } else {
-                dic[raw] = 1
+                dic[trimmed] = 1
             }
         }
         var wordArray: [Word] = []
