@@ -18,7 +18,8 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ignoreTextView.string = "the,to,you,that,this,in,have,of,i,we,can,so,your,use,are,and,code,do,want,on,for,it,so,going,compiler,segue,about,if,just,our,how,new,really,know,all,be,what,my,view,at,ios,os,with,an,application,it's,but,check,app,identifier,now,right,am,swift,api,as,defined,these,availability,back,go,not,take,when,also,by,from,let's,protocol,type,will,call,controller,different,get,method,other,out,then,here,implementation,way,cases,enum,like,look,some,string,time,using,asset,because,class,define,enumeration,into,more,only,problem,runtime,same,see,that's,we've,actually,add,available,doesn't,earlier,even,problems,say,thing,ui,well,before,don't,done,image,solution,syntax,talk,them,case,information,mapping,need,own,provided,there,there's,think,was,where,would,behavior,checking,completely,functions,images,make,one,safe,switch,they,two,which,approach,apps,browser,compile,enums,factor,first,great,had,help,methods,or,pretty,protocols,provide,release,releases,sdk,something,specific,storyboard,strings,tell,us,users,very,advantagebetween,block,could,deploying,enumerations,error,everywhere,many,me,naturally,prepare,return,still,those,uikit"
+        
+        ignoreTextView.string = fetchIgnoreList()
     }
 
     override var representedObject: AnyObject? {
@@ -46,5 +47,79 @@ class ViewController: NSViewController {
         outputTextView.string = resultText as String
     }
     
+    @IBAction func onImportIgnoreButtonClick(sender: NSButton) {
+        guard let text = outputTextView.string else { return }
+        
+        let sb = NSMutableString(string: "")
+        do {
+            let regex = try NSRegularExpression(pattern: "[a-z']+", options: [.CaseInsensitive])
+            let nsText = text as NSString
+            let matches = regex.matchesInString(text, options: .ReportCompletion, range: NSMakeRange(0, nsText.length))
+            for matchResult in matches {
+                let word = nsText.substringWithRange(matchResult.range)
+                sb.appendString("\(word),")
+            }
+            sb.deleteCharactersInRange(NSMakeRange(sb.length - 1, 1))
+            
+            if let tobeSavedText = ignoreTextView.string {
+                sb.insertString("\(tobeSavedText),", atIndex: 0)
+            }
+            
+            ignoreTextView.string = sb as String
+            saveIgnoreList()
+            
+        } catch {
+            print("error -> \(error)")
+        }
+    }
+    
+    // MARK: - Private Methods
+    func fetchIgnoreList() -> String {
+        guard let filesPath = filesPath() else {
+            return ""
+        }
+        
+        var filePath = filesPath.stringByAppendingString("/ignore-list.txt")
+        if !NSFileManager.defaultManager().fileExistsAtPath(filePath) {
+            filePath = NSBundle.mainBundle().pathForResource("ignore-list", ofType: "txt")!
+        }
+        guard let data = NSData(contentsOfFile: filePath) else {
+            return ""
+        }
+        return (NSString(data: data, encoding: NSUTF8StringEncoding) ?? "") as String
+    }
+    
+    func saveIgnoreList() {
+        guard let text = ignoreTextView.string else {
+            return
+        }
+        
+        guard let filesDir = filesPath() else {
+            return
+        }
+        
+        guard let data = text.dataUsingEncoding(NSUTF8StringEncoding) else {
+            return
+        }
+        
+        let filePath = filesDir.stringByAppendingString("/ignore-list.txt")
+        data.writeToFile(filePath, atomically: true)
+    }
+    
+    func filesPath() -> String? {
+        guard let docPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last else {
+            return nil
+        }
+        let filesPath = docPath.stringByAppendingString("/files")
+        if !NSFileManager.defaultManager().fileExistsAtPath(filesPath) {
+            do {
+                try NSFileManager.defaultManager().createDirectoryAtPath(filesPath, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("\(error)")
+            }
+        }
+        
+        return filesPath
+    }
 }
 

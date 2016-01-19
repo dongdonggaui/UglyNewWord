@@ -683,10 +683,10 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="centerX" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yVQ-lM-phd">
-                                                <rect key="frame" x="0.0" y="-7" width="297" height="407"/>
+                                                <rect key="frame" x="0.0" y="-8" width="297" height="408"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7iK-fA-90j">
-                                                        <rect key="frame" x="116" y="369" width="66" height="32"/>
+                                                        <rect key="frame" x="116" y="370" width="66" height="32"/>
                                                         <buttonCell key="cell" type="push" title="统计" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Mo-qo-Da3">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -696,19 +696,19 @@
                                                         </connections>
                                                     </button>
                                                     <scrollView misplaced="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psf-x2-rAY">
-                                                        <rect key="frame" x="10" y="10" width="277" height="358"/>
+                                                        <rect key="frame" x="10" y="10" width="277" height="359"/>
                                                         <clipView key="contentView" id="1Gd-TY-0fb">
-                                                            <rect key="frame" x="1" y="1" width="275" height="356"/>
+                                                            <rect key="frame" x="1" y="1" width="275" height="357"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="r6o-ug-w99">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="259" height="356"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="259" height="357"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <size key="minSize" width="275" height="356"/>
+                                                                    <size key="minSize" width="275" height="357"/>
                                                                     <size key="maxSize" width="498" height="10000000"/>
                                                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                    <size key="minSize" width="275" height="356"/>
+                                                                    <size key="minSize" width="275" height="357"/>
                                                                     <size key="maxSize" width="498" height="10000000"/>
                                                                 </textView>
                                                             </subviews>
@@ -719,7 +719,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </scroller>
                                                         <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="V61-1N-rRa">
-                                                            <rect key="frame" x="260" y="1" width="16" height="356"/>
+                                                            <rect key="frame" x="260" y="1" width="16" height="357"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </scroller>
                                                     </scrollView>
@@ -751,21 +751,21 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="250" verticalStackHuggingPriority="249.99998474121094" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y0h-Jf-jfd">
-                                                <rect key="frame" x="0.0" y="-7" width="293" height="407"/>
+                                                <rect key="frame" x="0.0" y="-8" width="293" height="408"/>
                                                 <subviews>
                                                     <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="co2-RR-OoC">
-                                                        <rect key="frame" x="10" y="373" width="273" height="24"/>
+                                                        <rect key="frame" x="10" y="377" width="273" height="21"/>
                                                         <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bob-4w-Id2">
-                                                                <rect key="frame" x="-2" y="4" width="214" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bob-4w-Id2">
+                                                                <rect key="frame" x="-2" y="2" width="214" height="17"/>
                                                                 <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="请输入不想被统计的单词，以&quot;,&quot;隔开" id="TSl-Cx-iJ6">
                                                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jqK-5i-lfs">
-                                                                <rect key="frame" x="213" y="-5" width="66" height="32"/>
+                                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jqK-5i-lfs">
+                                                                <rect key="frame" x="213" y="-7" width="66" height="32"/>
                                                                 <buttonCell key="cell" type="push" title="存储" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FVJ-4I-epF">
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="system"/>
@@ -782,7 +782,7 @@
                                                         </customSpacing>
                                                     </stackView>
                                                     <scrollView misplaced="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyE-4I-QXo">
-                                                        <rect key="frame" x="10" y="230" width="273" height="135"/>
+                                                        <rect key="frame" x="10" y="234" width="273" height="135"/>
                                                         <clipView key="contentView" id="SsY-IO-yqA">
                                                             <rect key="frame" x="1" y="1" width="271" height="133"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -812,14 +812,37 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </scroller>
                                                     </scrollView>
-                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DbL-Yz-Kao">
-                                                        <rect key="frame" x="8" y="205" width="43" height="17"/>
-                                                        <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="结果：" id="Yip-nO-fYO">
-                                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
-                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                    </textField>
+                                                    <stackView distribution="equalSpacing" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" misplaced="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eR6-9o-ho9">
+                                                        <rect key="frame" x="10" y="205" width="273" height="21"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="DbL-Yz-Kao">
+                                                                <rect key="frame" x="-2" y="2" width="43" height="17"/>
+                                                                <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" title="结果：" id="Yip-nO-fYO">
+                                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jCf-Xe-uCT">
+                                                                <rect key="frame" x="187" y="-7" width="92" height="32"/>
+                                                                <buttonCell key="cell" type="push" title="导入忽略" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="p2C-tF-AdC">
+                                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                                                </buttonCell>
+                                                                <connections>
+                                                                    <action selector="onImportIgnoreButtonClick:" target="XfG-lQ-9wD" id="3fg-hS-1vY"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
                                                     <scrollView misplaced="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXw-U6-5Fd">
                                                         <rect key="frame" x="10" y="10" width="273" height="187"/>
                                                         <clipView key="contentView" id="wGA-Of-DwT">

@@ -52,3 +52,18 @@ extension String {
 let sentence = "I'm a developer, I love code. And I hate English. But bla bla bla"
 let ignore: Set = ["i", "a", "and"]
 let words = sentence.wordCountDictionaryIgnoreBy(ignore)
+
+do {
+    let regex = try NSRegularExpression(pattern: "[a-z']+", options: [.CaseInsensitive, .AnchorsMatchLines])
+    let nsSentence = sentence as NSString
+    let range = NSMakeRange(0, nsSentence.length)
+    let sb = NSMutableString(string: "")
+    let matches = regex.matchesInString(sentence, options: [.ReportCompletion], range: range)
+    for matchResult in matches {
+        let word = nsSentence.substringWithRange(matchResult.range)
+        sb.appendString("\(word),")
+    }
+    sb
+} catch {
+    print("error --> \(error)")
+}
