@@ -29,7 +29,11 @@ class ViewController: NSViewController {
 
     // MARK: - IBActions
     @IBAction func onPerformButtonClick(sender: NSButton) {
-        if inputTextView.string == nil {
+        guard let text = inputTextView.string else {
+            return
+        }
+        
+        guard (text as NSString).length > 0 else {
             return
         }
         
@@ -37,7 +41,6 @@ class ViewController: NSViewController {
         if let inputIgnore = ignoreTextView.string {
             ignoreSet = ignoreSet.union(inputIgnore.toIgnoreSet())
         }
-        let text = inputTextView.string!
         let result = text.wordCountDictionaryIgnoreBy(ignoreSet)
         let resultText = NSMutableString(string: "")
         for word in result {
@@ -49,27 +52,26 @@ class ViewController: NSViewController {
     @IBAction func onImportIgnoreButtonClick(sender: NSButton) {
         guard let text = outputTextView.string else { return }
         
-        let sb = NSMutableString(string: "")
-        do {
-            let regex = try NSRegularExpression(pattern: "[a-z'-_]+", options: [.CaseInsensitive])
-            let nsText = text as NSString
-            let matches = regex.matchesInString(text, options: .ReportCompletion, range: NSMakeRange(0, nsText.length))
-            for matchResult in matches {
-                let word = nsText.substringWithRange(matchResult.range)
-                sb.appendString("\(word),")
-            }
-            sb.deleteCharactersInRange(NSMakeRange(sb.length - 1, 1))
-            
-            if let tobeSavedText = ignoreTextView.string {
-                sb.insertString("\(tobeSavedText),", atIndex: 0)
-            }
-            
-            ignoreTextView.string = sb as String
-            saveIgnoreList()
-            
-        } catch {
-            print("error -> \(error)")
+        guard let regex = try? NSRegularExpression(pattern: "[a-z'-]+", options: [.CaseInsensitive]) else {
+            print("create regex error")
+            return
         }
+        
+        let sb = NSMutableString(string: "")
+        let nsText = text as NSString
+        let matches = regex.matchesInString(text, options: .ReportCompletion, range: NSMakeRange(0, nsText.length))
+        for matchResult in matches {
+            let word = nsText.substringWithRange(matchResult.range).stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "_ "))
+            sb.appendString("\(word),")
+        }
+        sb.deleteCharactersInRange(NSMakeRange(sb.length - 1, 1))
+        
+        if let tobeSavedText = ignoreTextView.string {
+            sb.insertString("\(tobeSavedText),", atIndex: 0)
+        }
+        
+        ignoreTextView.string = sb as String
+        saveIgnoreList()
     }
     
     @IBAction func onSaveButtonTapped(sender: NSButton) {
