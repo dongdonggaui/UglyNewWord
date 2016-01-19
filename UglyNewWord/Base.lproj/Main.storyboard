@@ -770,6 +770,9 @@
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="system"/>
                                                                 </buttonCell>
+                                                                <connections>
+                                                                    <action selector="onSaveButtonTapped:" target="XfG-lQ-9wD" id="D5p-UT-TQ8"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <visibilityPriorities>

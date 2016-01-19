@@ -18,7 +18,6 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         ignoreTextView.string = fetchIgnoreList()
     }
 
@@ -52,7 +51,7 @@ class ViewController: NSViewController {
         
         let sb = NSMutableString(string: "")
         do {
-            let regex = try NSRegularExpression(pattern: "[a-z']+", options: [.CaseInsensitive])
+            let regex = try NSRegularExpression(pattern: "[a-z'-_]+", options: [.CaseInsensitive])
             let nsText = text as NSString
             let matches = regex.matchesInString(text, options: .ReportCompletion, range: NSMakeRange(0, nsText.length))
             for matchResult in matches {
@@ -71,6 +70,10 @@ class ViewController: NSViewController {
         } catch {
             print("error -> \(error)")
         }
+    }
+    
+    @IBAction func onSaveButtonTapped(sender: NSButton) {
+        saveIgnoreList()
     }
     
     // MARK: - Private Methods

@@ -23,10 +23,11 @@ extension String {
         }
         
         let dic = NSMutableDictionary()
-        let charset = NSCharacterSet(charactersInString: " .,:;?![]{}()\n")
+        let charset = NSCharacterSet(charactersInString: " .,:;?![]{}()/<>\n")
         let rawWordArray = self.lowercaseString.componentsSeparatedByCharactersInSet(charset)
         for raw in rawWordArray {
-            let trimmed = raw.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "@ '\""))
+            var trimmed = raw.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "@ '\"“”—"))
+            trimmed = trimmed.stringByReplacingOccurrencesOfString("’", withString: "'")
             if (trimmed as NSString).length < 4 || ignore.contains(trimmed) {
                 continue
             }
@@ -56,7 +57,7 @@ extension String {
             return []
         }
         
-        let charset = NSCharacterSet(charactersInString: " .,:;?![]{}()\n")
+        let charset = NSCharacterSet(charactersInString: " .,:;?![]{}()/<>\n")
         let rawWordArray = self.lowercaseString.componentsSeparatedByCharactersInSet(charset)
         var ignoreSet: Set<String> = []
         for raw in rawWordArray {
